@@ -1,23 +1,18 @@
+require("dotenv").config();
+
 const express = require("express");
 const app = express();
 
-app.get("/", (req, res) => {
-    res.send("Online");
-});
-
-// CALLBACK DO DISCORD
-app.get("/auth/discord/callback", (req, res) => {
-    const code = req.query.code;
-
-    if (!code) {
-        return res.send("Código não encontrado");
-    }
-
-    res.send("Auth funcionando 🔥");
-});
-
 const PORT = process.env.PORT || 3000;
 
-app.listen(PORT, () => {
+app.get("/", (req, res) => {
+    res.send("Servidor online 🔥");
+});
+
+app.get("/auth/discord/callback", (req, res) => {
+    res.send("OAuth funcionando 🔥");
+});
+
+app.listen(PORT, "0.0.0.0", () => {
     console.log("Servidor online");
 });
