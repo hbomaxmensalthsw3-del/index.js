@@ -1,5 +1,3 @@
-console.log("STARTING APP...");
-
 const express = require("express");
 const app = express();
 
@@ -9,6 +7,10 @@ app.get("/", (req, res) => {
     res.send("OK FUNCIONANDO 🔥");
 });
 
+app.get("/auth/discord/callback", (req, res) => {
+    res.send("OAuth funcionando 🔥");
+});
+
 app.listen(PORT, "0.0.0.0", () => {
-    console.log("SERVER RUNNING ON PORT " + PORT);
+    console.log("ONLINE PORT " + PORT);
 });
